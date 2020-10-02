@@ -1,16 +1,23 @@
 'use strict'; 
 (function() {
 
-  let person = {
+  let person1 = {
     firstName: 'Sanya',
     lastName: 'Odare',
-    age: 10,
-    isAdult() { return this.age >= 18; }
+    age: 29
   };
 
-  for (let propertyName in person) {
-    display(propertyName);
-  }
+  let person2 = Object.create(
+    Object.prototype,
+    {
+      firstName: {value: 'Sanya', enumerable:true, writable:true, configurable:true},
+      lastName: {value: 'Odare', enumerable:true, writable:true, configurable:true},
+      age: {value:29, enumerable:true, writable:true, configurable:true},
+    }
+  );
+
+  display(person1);
+  display(person2);
 
 
 })();
