@@ -2,17 +2,20 @@
 (function() {
 
   let person = {
-    name: {
-      firstName: 'Sanya',
-    lastName: 'Odare'
-    },    
+    firstName: 'Sanya',
+    lastName: 'Odare',
     age: 29
   };
 
-  Object.defineProperty(person, 'name', {writable: false});
+  Object.defineProperty(person, 'firstName', {enumerable: false});
 
-  person.name.firstName = 'Alani';
+  for (let propertyName in person) {
+    display(propertyName + ': ' + person[propertyName]);
+  }
 
-  display(person.name);
+  display(Object.keys(person));
 
+  display(JSON.stringify(person));
+
+  display(person.firstName);
 })();
