@@ -7,15 +7,11 @@
     age: 29
   };
 
-  Object.defineProperty(person, 'firstName', {enumerable: false});
+  // Object.defineProperty(person, 'firstName', {configurable: false});
+  // Object.defineProperty(person, 'firstName', {writable: true});
 
-  for (let propertyName in person) {
-    display(propertyName + ': ' + person[propertyName]);
-  }
+  delete person.firstName;
 
-  display(Object.keys(person));
+  display(person);
 
-  display(JSON.stringify(person));
-
-  display(person.firstName);
 })();
