@@ -15,10 +15,14 @@
       this.firstName = nameParts[0];
       this.lastName = nameParts[1];
     }
+
+    isAdult() {
+      return this.age >= 18;
+    }
   }
 
   let alani = new Person('Alani', 'Odare', 29);
   alani.fullName = 'James Odare';
 
-  display(alani.fullName);
+  display(alani.isAdult());
 })();
