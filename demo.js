@@ -5,19 +5,12 @@
     this.firstName = firstName;
     this.lastName = lastName;
   }
+  Person.prototype.age = 4;
 
-  Person.prototype.age = 29;
+  let alani = new Person('Alani', 'Odare');
 
-  var alani = new Person('Alani', 'Odare');
-  var asake = new Person('Asake', 'Odare');
-
-  Person.prototype = { age: 18 };
-
-  let james = new Person('James', 'Odare');
-
-  display(Person.prototype);
-  display(alani.age);
-  display(asake.age);
-  display(james.age);
+  display(alani.__proto__);
+  display(alani.__proto__.__proto__);
+  display(alani.__proto__.__proto__.__proto__);
 
 })();
