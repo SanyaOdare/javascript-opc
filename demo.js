@@ -21,8 +21,10 @@
     }
   }
 
-  let alani = new Person('Alani', 'Odare', 29);
-  alani.fullName = 'James Odare';
+  Object.defineProperty(Person.prototype, 'fullName', {enumerable: true});
 
-  display(alani.isAdult());
+  let alani = new Person('Alani', 'Odare', 29);
+  // alani.fullName = 'James Odare';
+
+  display(alani);
 })();
