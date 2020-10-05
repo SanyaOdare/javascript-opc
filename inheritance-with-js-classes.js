@@ -33,7 +33,7 @@
 //     }
 
 //     getCourses() {
-//       return this.fullName + "'s enrolled courses are: ";
+//       return this.fullName + "'s enrolled courses are: " +
 //         this._enrolledCourses.join(', ');
 //     }
 //   }

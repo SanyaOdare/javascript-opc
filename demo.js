@@ -8,9 +8,12 @@
       this.age = age;
     }
 
+    static adultAge = 18;
+
     get fullName() {
       return this.firstName + ' ' + this.lastName;
     }
+
     set fullName(fullName) {
       var nameParts = fullName.split(' ');
       this.firstName = nameParts[0];
@@ -22,10 +25,16 @@
     }
   }
 
+  display(Person.adultAge);
+
   class Student extends Person {
     constructor(firstName, lastName, age) {
       super(firstName, lastName, age);
       this._enrolledCourses = [];
+    }
+
+    static fromPerson(person) {
+      return new Student(person.firstName, person.lastName, person.age);
     }
 
     enroll(courseId) {
@@ -33,15 +42,14 @@
     }
 
     getCourses() {
-      return this.fullName + "'s enrolled courses are: ";
+      return this.fullName + "'s enrolled courses are: " +
         this._enrolledCourses.join(', ');
     }
   }
 
-  let alani = new Student('Alani', 'Odare', 29);
+  let alani = new Person('Alani', 'Odare', 29);
 
-  alani.enroll('CS101');
+  let alaniStudent = Student.fromPerson(alani);
 
-  display(alani.getCourses());
-
+  display(alaniStudent);
 })();
