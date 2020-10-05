@@ -7,6 +7,7 @@
       this.lastName = lastName;
       this.age = age;
     }
+
     get fullName() {
       return this.firstName + ' ' + this.lastName;
     }
@@ -21,10 +22,26 @@
     }
   }
 
-  Object.defineProperty(Person.prototype, 'fullName', {enumerable: true});
+  class Student extends Person {
+    constructor(firstName, lastName, age) {
+      super(firstName, lastName, age);
+      this._enrolledCourses = [];
+    }
 
-  let alani = new Person('Alani', 'Odare', 29);
-  // alani.fullName = 'James Odare';
+    enroll(courseId) {
+      this._enrolledCourses.push(courseId);
+    }
 
-  display(alani);
+    getCourses() {
+      return this.fullName + "'s enrolled courses are: ";
+        this._enrolledCourses.join(', ');
+    }
+  }
+
+  let alani = new Student('Alani', 'Odare', 29);
+
+  alani.enroll('CS101');
+
+  display(alani.getCourses());
+
 })();
