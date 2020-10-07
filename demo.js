@@ -1,12 +1,20 @@
-// 'use strict'; 
-// (function() {
+'use strict'; 
+(function() {
 
-//   function checkPasswordComplexity(password) {
-//     let regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/gi;
+  function findAlerts(logData) {
+    let regex = /ERROR(.*?):(.*?);/g;
 
-//     return regex.test(password);
-//   }
+    let result = regex.exec(logData);
+    while(result !== null) {
+      display(result[1]);
+      display(result[2]);
+      display('-----------------------------');
+      result = regex.exec(logData);
+    }
+  }
 
-//   display(checkPasswordComplexity('Stronger1'));
+  let logData = 'INFO:Ok;ERROR(HIGH):Something broke;ERROR(LOW):Something fishy;ERROR(HIGH):So many errors;';
+  findAlerts(logData);
 
-// })();
+
+})();
